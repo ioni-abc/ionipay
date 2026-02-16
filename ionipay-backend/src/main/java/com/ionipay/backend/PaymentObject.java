@@ -15,6 +15,7 @@ public class PaymentObject {
     private Long amount;
     private String currency;
     private String status;
-    private String payerId;
-    private String payeeId;
+    private String createdByUserId;     // not uuid for the purpose of the exam
+    private String approvedByUserId;
+    private UUID vendorId;
 }
