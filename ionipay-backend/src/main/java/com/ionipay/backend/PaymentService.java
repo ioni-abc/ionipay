@@ -23,9 +23,6 @@ public class PaymentService {
     }
 
     public PaymentObject createPayment(PaymentObject payment) {
-        if (payment.getAmount() < 0) {
-            throw new IllegalArgumentException("Amount can't be negative.");
-        }
         return repository.save(payment);
     }
 

@@ -1,5 +1,6 @@
 package com.ionipay.backend;
 
+import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.http.ResponseEntity;
 import java.util.List;
@@ -22,12 +23,12 @@ public class PaymentController {
     }
 
     @GetMapping("/{id}")
-    public Optional<PaymentObject> getPayment(UUID id) {
+    public Optional<PaymentObject> getPayment(@PathVariable UUID id) {
         return service.getPayment(id);
     }
 
     @PostMapping
-    public ResponseEntity<?> createPayment(@RequestBody PaymentObject newPayment) {
+    public ResponseEntity<?> createPayment(@Valid @RequestBody PaymentObject newPayment) {
         try {
             PaymentObject created = service.createPayment(newPayment);
             return ResponseEntity.ok(created);

@@ -1,10 +1,13 @@
 package com.ionipay.backend;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Min;
 import lombok.Data;
 import java.util.UUID;
 
-@Entity     // Tells JPA that this class maps to a specific table within the schema              
+@Entity
 @Data
 @Table(name = "payment_objects")
 public class PaymentObject {
@@ -12,10 +15,25 @@ public class PaymentObject {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
+
+    @NotNull(message = "Amount is required")
+    @Min(value = 0, message = "Amount cannot be negative")
+    @Column(nullable = false)
     private Long amount;
+
+    @NotBlank(message = "Currency is required")
+    @Column(nullable = false)
     private String currency;
+
+    @NotBlank(message = "Status is required")
+    @Column(nullable = false)
     private String status;
-    private String createdByUserId;     // not uuid for the purpose of the exam
+
+    @NotBlank(message = "Creator ID is required")
+    @Column(nullable = false)
+    private String createdByUserId;
+
     private String approvedByUserId;
+    
     private UUID vendorId;
 }
