@@ -3,6 +3,7 @@ package com.ionipay.backend;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.http.ResponseEntity;
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 @RestController
@@ -18,6 +19,11 @@ public class PaymentController {
     @GetMapping
     public List<PaymentObject> getAllPayments() {
         return service.getAllPayments();
+    }
+
+    @GetMapping("/{id}")
+    public Optional<PaymentObject> getPayment(UUID id) {
+        return service.getPayment(id);
     }
 
     @PostMapping
