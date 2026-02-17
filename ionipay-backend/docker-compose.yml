@@ -18,6 +18,8 @@ services:
   backend-app:
     build: .
     container_name: ionipay-spring-boot
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
     ports:
       - "8080:8080"
     depends_on: 
