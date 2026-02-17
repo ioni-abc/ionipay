@@ -36,4 +36,9 @@ public class PaymentObject {
     private String approvedByUserId;
     
     private UUID vendorId;
+
+    @PrePersist
+    protected void onCreate() {
+        this.status = "PENDING";
+    }
 }

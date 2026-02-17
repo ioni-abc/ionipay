@@ -14,6 +14,14 @@ services:
     secrets:
       - db_name
       - db_pass
+    
+  backend-app:
+    build: .
+    container_name: ionipay-spring-boot
+    ports:
+      - "8080:8080"
+    depends_on: 
+      - postgres-db
 
 volumes:
   postgres_data:
