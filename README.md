@@ -3,6 +3,8 @@
 ## Prerequisites:
 - Docker Desktop
 
+<img width="1481" height="789" alt="Screenshot 2026-02-17 at 22 06 27" src="https://github.com/user-attachments/assets/3dcca6da-a82c-4f54-bbb7-95b2a05bb8ff" />
+
 ## Set up instructions:
 
 ### 1. Clone
